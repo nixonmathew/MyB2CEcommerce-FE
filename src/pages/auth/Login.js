@@ -132,7 +132,7 @@ const Login = ({ history }) => {
         size="large"
         disabled={!email || (password && password.length < 6)}
       >
-        Login
+        LOGIN
       </Button>
       <Button
         onClick={googleLogin}
@@ -156,7 +156,7 @@ const Login = ({ history }) => {
       <div className="row">
         <div className="col-md-6 offset-md-3">
           {loading ? (
-            <h4 className="text-danger">Loading...</h4>
+            <h4 className="text-danger">Loading..</h4>
           ) : (
             <h4>Login</h4>
           )}
