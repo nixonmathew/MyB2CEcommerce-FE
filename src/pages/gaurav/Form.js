@@ -21,7 +21,6 @@ const Form = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(e);
     console.log(typeof e.target);
 
     setLoading(true);
@@ -38,7 +37,11 @@ const Form = () => {
         toast.success("Product created successfully");
       })
       .catch((err) => {
-        // toast.error(err.response.data.err);
+        if (err && err.response) {
+          toast.error(err.response.data.err);
+        } else {
+          toast.error("Product creation failed");
+        }
         setLoading(false);
       });
   };
