@@ -1,7 +1,11 @@
 import axios from "axios";
 
 export const createGauravForm = async (product) =>
-  await axios.post("https://gv-boot-demo.herokuapp.com/save", product, {});
+  await axios.post(
+    "https://gv-employees-boot.herokuapp.com/api/employees",
+    product,
+    {}
+  );
 
 // export const listProductsByCount = async (count) => await axios.get(process.env.REACT_APP_API + '/products/' + count)
 

@@ -5,10 +5,10 @@ import { LoadingOutlined } from "@ant-design/icons";
 import { toast } from "react-toastify";
 
 const InitialState = {
-  productCode: "",
-  name: "",
-  quantity: "",
-  price: "",
+  employeeId: "",
+  firstName: "",
+  lastName: "",
+  email: "",
 };
 
 const Form = () => {
@@ -24,14 +24,14 @@ const Form = () => {
     console.log(typeof e.target);
 
     setLoading(true);
-    let fd = new FormData();
-    for (let i in formValues) {
-      fd.set(i, formValues[i]);
-    }
-    console.log(fd);
-    console.log(fd.entries());
-    console.log(fd.values());
-    await createGauravForm(fd)
+    // let fd = new FormData();
+    // for (let i in formValues) {
+    //   fd.set(i, formValues[i]);
+    // }
+    console.log(formValues);
+    // console.log(fd.entries());
+    // console.log(fd.values());
+    await createGauravForm(formValues)
       .then((res) => {
         setLoading(false);
         toast.success("Product created successfully");
@@ -55,42 +55,42 @@ const Form = () => {
       )}
       <form onSubmit={handleSubmit}>
         <div className="form-group p-3">
-          <label>Product Code</label>
+          <label>Employee Id</label>
           <input
             type="text"
-            name="productCode"
+            name="employeeId"
             className="form-control"
-            value={formValues.productCode}
+            value={formValues.employeeId}
             onChange={handleChange}
           />
         </div>
         <div className="form-group p-3">
-          <label>Product Name</label>
+          <label>First Name</label>
           <input
             type="text"
-            name="name"
+            name="firstName"
             className="form-control"
-            value={formValues.name}
+            value={formValues.firstName}
             onChange={handleChange}
           />
         </div>
         <div className="form-group p-3">
-          <label>Quantity</label>
+          <label>Last Name</label>
           <input
             type="text"
-            name="quantity"
+            name="lastName"
             className="form-control"
-            value={formValues.quantity}
+            value={formValues.lastName}
             onChange={handleChange}
           />
         </div>
         <div className="form-group p-3">
-          <label>Price</label>
+          <label>Email</label>
           <input
             type="text"
-            name="price"
+            name="email"
             className="form-control"
-            value={formValues.price}
+            value={formValues.email}
             onChange={handleChange}
           />
         </div>
